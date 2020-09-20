@@ -37,6 +37,8 @@ A little work is needed to use the shared folders as a non-root user.
 
 ##
 
-If you ask, I can make a lightner version, maybe without gui.
+I made this a long time ago, sorry for don't document it very well, time is the trouble.
+
+If you ask, I can update this or make a lightner version, maybe without gui.
 
 Any problems or suggestions, feel free to comment!
