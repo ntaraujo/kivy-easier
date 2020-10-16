@@ -26,6 +26,7 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 **[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/How-to-Setup)**
 
 #### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
+
 ![](https://badgen.net/badge/size/401MB/?label=expected+size)
 
 #### 2. Extract all files in 7z file to same directory
@@ -83,6 +84,8 @@ Ps.: the password is ```kivy```.
 buildozer -v android debug
 ```
 The process is commonly boring, get a coffe.
+
+![](https://badgen.net/badge/size/6.31GB/?label=expected+size)
 
 ## ⬆️Update
 
