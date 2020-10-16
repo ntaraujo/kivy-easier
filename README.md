@@ -25,9 +25,9 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 
 **[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/How-to-Setup)**
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) installer zip
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
 
-#### 2. Extract all files in zip file to same directory
+#### 2. Extract all files in 7z file to same directory
 Please extract to a folder that has full access permission.
 For example 'Program Files' can not be used.
 
@@ -81,9 +81,9 @@ The process is commonly boring, get a coffe.
 
 ## ⬆️Update
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) installer zip
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
 
-#### 2. Extract .exe and rootfs.tar.gz from .zip and overwrites existing ones.
+#### 2. Extract .exe and rootfs.tar.gz from .7z and overwrites existing ones.
 
 ## 🚫Known issues
 
