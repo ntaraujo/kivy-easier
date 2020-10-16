@@ -27,7 +27,7 @@ The graphical interface is xfce and the virtual box guest additions is installed
 
 ---
 
-If you ask, I can update this or make a lightner version, maybe without gui, maybe lightner, there is much things to upgrade and let easier.
+If you ask, I can update this or make a lightner version, maybe without gui. There is much to upgrade and let easier.
 
 ---
 
