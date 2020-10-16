@@ -23,7 +23,7 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 
 ## 💾Install
 
-**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/How-to-Setup)**
+**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Starting)**
 
 #### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
 
@@ -51,6 +51,8 @@ Kivy-Easier.exe config --default-user kivy
 Now, when you open the distro, will be logged in as a non-root user.
 
 ## 📝How-to-Use
+
+**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Using)**
 
 #### 1. Open the WSL Terminal
 If you use Windows Terminal, will appear the Kivy-Easier option to you in the "˅";
@@ -93,9 +95,9 @@ The process is commonly boring, get a coffe.
 
 #### 2. Extract .exe and rootfs.tar.gz from .7z and overwrites existing ones.
 
-## 🚫Known issues
+## 🔧 Developers
 
-Please see [Wiki](https://github.com/ntaraujo/kivy-easier/wiki).
+Details on how to reproduce this project are on the [wiki](https://github.com/ntaraujo/kivy-easier/wiki/Developing)
 
 ## 📁 Old Virtual Machine
 No support, but you can get more info in this [branch](https://github.com/ntaraujo/kivy-easier/tree/old-vm).
