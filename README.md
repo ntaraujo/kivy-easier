@@ -2,7 +2,7 @@
 Archlinux and buildozer on WSL (Windows 10 FCU or later)
 based on [wsldl](https://github.com/yuk7/wsldl)
 
-![Screenshot](https://raw.githubusercontent.com/wiki/yuk7/wsldl/img/Arch_Alpine_Ubuntu.png)
+![kivy](https://user-images.githubusercontent.com/66187211/96212318-eba01480-0f4c-11eb-9a53-5394175c8bac.png)
 
 [![License](https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ntaraujo/kivy-easier/issues)
@@ -53,19 +53,19 @@ If you don't, run Kivy-Easier.exe once more, now it wont setup, but open the dis
 
 You can also create shortcuts with the context menu. Just right click and choose the better option to you.
 
-### 2. Access your project directory
+#### 2. Access your project directory
 Change the current directory to which the `main.py` file is located. If it is in "C:/Users/You/Documents/KivyProject":
 ```
 cd /mnt/c/Users/You/Documents/KivyProject
 ```
 
-### 3. Create buildozer.spec file
+#### 3. Create buildozer.spec file
 Your app's specifications will be inside this. Run:
 ```
 buildozer init
 ```
 
-### 4. Change it
+#### 4. Change it
 Open buildozer.spec in your favorite editor (Windows side), change and save.
 If you have to edit it inside WSL, install the necessary:
 ```
@@ -73,7 +73,7 @@ sudo pacman -S vim
 ```
 Ps.: the password is ```kivy```.
 
-### 5. Start packaging
+#### 5. Start packaging
 ```
 buildozer -v android debug
 ```
