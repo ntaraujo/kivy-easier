@@ -26,13 +26,18 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 **[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/How-to-Setup)**
 
 #### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
+![](https://badgen.net/badge/size/401MB/?label=expected+size)
 
 #### 2. Extract all files in 7z file to same directory
 Please extract to a folder that has full access permission.
 For example 'Program Files' can not be used.
 
+![](https://badgen.net/badge/size/409MB/?label=expected+size)
+
 #### 3. Run Kivy-Easier.exe
 It will extract rootfs.tar.gz and register to WSL.
+
+![](https://badgen.net/badge/size/1.71GB/?label=expected+size)
 
 ## ⚙️ Setup
 
