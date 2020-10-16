@@ -2,7 +2,7 @@
 Archlinux and buildozer on WSL (Windows 10 FCU or later)
 based on [wsldl](https://github.com/yuk7/wsldl)
 
-![kivy](https://user-images.githubusercontent.com/66187211/96212318-eba01480-0f4c-11eb-9a53-5394175c8bac.png)
+![Screenshot](https://user-images.githubusercontent.com/66187211/96212318-eba01480-0f4c-11eb-9a53-5394175c8bac.png)
 
 [![License](https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ntaraujo/kivy-easier/issues)
@@ -13,7 +13,7 @@ based on [wsldl](https://github.com/yuk7/wsldl)
 
 ## 📚 Intro
 
-Windows Subsystem for Linux is the easiest way to run linux commands without the need to change all your environment. It's becoming more complex and complete. Certainly a good option to kivy developers who want to use buildozer.
+Windows Subsystem for Linux is the easiest way to run linux commands without the need to change all your environment. It's becoming more complex and complete. Certainly a good option to kivy developers who want to use buildozer in Windows.
 If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 ## 💻Requirements
