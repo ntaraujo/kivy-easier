@@ -50,6 +50,8 @@ Kivy-Easier.exe config --default-user kivy
 ```
 Now, when you open the distro, will be logged in as a non-root user.
 
+Tip: shift + right click in the File Explorer show the option "Open PowerShell window here"
+
 ## 📝How-to-Use
 
 **[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Using)**
