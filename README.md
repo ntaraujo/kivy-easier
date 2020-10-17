@@ -79,7 +79,7 @@ If you have to edit it inside WSL, install the necessary:
 ```
 sudo pacman -S vim
 ```
-Ps.: the password is ```kivy```.
+PS, the password is ```kivy```.
 
 #### 5. Start packaging
 ```
