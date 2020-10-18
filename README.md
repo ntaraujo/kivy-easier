@@ -25,15 +25,15 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 
 **[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Starting)**
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) zip installer
 
-![](https://badgen.net/badge/size/401MB/?label=expected+size)
+![](https://badgen.net/badge/size/415MB/?label=expected+size)
 
-#### 2. Extract all files in 7z file to same directory
+#### 2. Extract all files in zip file to same directory
 Please extract to a folder that has full access permission.
 For example 'Program Files' can not be used.
 
-![](https://badgen.net/badge/size/409MB/?label=expected+size)
+![](https://badgen.net/badge/size/427MB/?label=expected+size)
 
 #### 3. Run Kivy-Easier.exe
 It will extract rootfs.tar.gz and register to WSL.
@@ -93,9 +93,9 @@ The process is commonly boring, get a coffe.
 
 ## ⬆️Update
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) zip installer
 
-#### 2. Extract .exe and rootfs.tar.gz from .7z and overwrites existing ones.
+#### 2. Extract .exe and rootfs.tar.gz from .zip and overwrites existing ones.
 
 ## 🔧 Developers
 
