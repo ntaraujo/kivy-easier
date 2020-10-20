@@ -68,7 +68,7 @@ If asked, confirm you want to run this workaround and if ip and port are right t
 
 Then, allow to run adb from within wsl in the firewall dialog box.
 
-If you are a WL1 user, these messages shouldn't appear.
+If you are a WSL1 user, these messages shouldn't appear.
 
 ## 📝How-to-Use
 
