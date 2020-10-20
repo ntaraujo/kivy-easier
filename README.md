@@ -33,6 +33,8 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 Please extract to a folder that has full access permission.
 For example 'Program Files' can not be used.
 
+We recommend one easy to remember and type. Like "C:\ke\\".
+
 ![](https://badgen.net/badge/size/420MB/?label=expected+size)
 
 #### 3. Run Kivy-Easier.exe
@@ -50,7 +52,7 @@ In the folder you extracted the exe, run:
 ```
 Now, when you open the distro, will be logged in as a non-root user.
 
-Tip: shift + right click in the File Explorer show the option "Open PowerShell window here"
+Tip: shift + right click in File Explorer show the option "Open PowerShell window here"
 
 #### 2. Open the WSL Terminal
 If you use Windows Terminal, will appear the Kivy-Easier option to you in the "˅";
@@ -66,14 +68,14 @@ If asked, confirm you want to run this workaround and if ip and port are right t
 
 Then, allow to run adb from within wsl in the firewall dialog box.
 
-If you are a WL1 user, this message shouldn't appear.
+If you are a WL1 user, these messages shouldn't appear.
 
 ## 📝How-to-Use
 
-**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Using)*
+**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Using)**
 
 #### 1. Access your project directory
-Change the current directory to which the `main.py` file is located. If it is in "C:/Users/You/Documents/KivyProject":
+Change the current directory to which the `main.py` file is located. If it is in "C:\\Users\\You\\Documents\\KivyProject":
 ```
 cd /mnt/c/Users/You/Documents/KivyProject
 ```
@@ -84,15 +86,8 @@ Your app's specifications will be inside this. Run:
 buildozer init
 ```
 
-#### 3. Change it
+#### 3. Edit it
 Open buildozer.spec in your favorite editor (Windows side), change and save.
-If you have to edit it inside WSL, install the necessary:
-```
-sudo pacman-key --init
-sudo pacman-key --populate
-sudo pacman -S vim
-```
-PS, the password is ```kivy```.
 
 #### 5. Start packaging
 ```
