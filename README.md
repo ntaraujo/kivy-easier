@@ -25,7 +25,7 @@ If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/w
 
 **[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Starting)**
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) zip installer
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) installer zip
 
 ![](https://badgen.net/badge/size/417MB/?label=expected+size)
 
@@ -102,7 +102,7 @@ The process is commonly boring, get a coffe.
 
 ## ⬆️Update
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) compressed installer
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) installer zip
 
 #### 2. Extract .exe and rootfs.tar.gz from .zip and overwrites existing ones.
 
