@@ -7,7 +7,7 @@ Buildozer on Windows.
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ntaraujo/kivy-easier/issues)
 [![Github All Releases](https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/releases/latest)
 
-### [⬇Download](https://github.com/ntaraujo/kivy-easier/releases/latest) | [📓Start using](https://github.com/ntaraujo/kivy-easier#😎-Start-Using)
+### [⬇Download](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-installer.exe) | [📓Start using](https://github.com/ntaraujo/kivy-easier#😎-Start-Using)
 
 ## 📚 Intro
 
@@ -20,7 +20,7 @@ Minimum to use [wsldl](https://github.com/yuk7/wsldl)
 * Windows 10 1709 Fall Creators Update 64bit or later.
 * Windows Subsystem for Linux feature is enabled.
 ### Recommended
-Minimum to use WSL2 (in WSL1 your project have to be inside the distro)
+Minimum to use WSL2 (in WSL1 your project need to be inside the distro)
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
 * For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
 
@@ -39,7 +39,7 @@ In PyCharm, VSCode, etc you can skip this step:
 ```
 cd C:\Users\You\Documents\YourProject
 ```
-Note: Ensure the path haven't spaces
+Note: The path cannot have spaces
 
 #### 2. Create buildozer.spec file
 Your app's specifications will be inside this. Run:
@@ -60,7 +60,7 @@ More details about the usage [here](https://github.com/ntaraujo/kivy-easier/blob
 
 ## 🔧 Developers
 
-Details on how to reproduce this project [here](https://github.com/ntaraujo/kivy-easier/blob/master/DEVELOP.md).
+Details on how to reproduce/contribute to this project [here](https://github.com/ntaraujo/kivy-easier/blob/master/DEVELOP.md).
 
 ## 📁 Old Virtual Machine
-No support, but you can get more info in this [branch](https://github.com/ntaraujo/kivy-easier/tree/old-vm).
+No support, but you can get more info in [this branch](https://github.com/ntaraujo/kivy-easier/tree/old-vm).
