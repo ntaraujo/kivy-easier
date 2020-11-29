@@ -1,0 +1,24 @@
+Options :
+  -v, --verbose
+    - STDOUT and STDERR.
+  -b, --blocking
+    - Run in the current thread. Standart for 'variable'
+  -vb, -bv
+    - These two. Standart for 'side', 'help' and '<anything else>'
+
+Usage :
+  start
+    - Start Windows adb as required to work with Linux adb
+  kill
+    - Kill adb in Windows and Linux side
+  variable
+    - Set ADB_SERVER_SOCKET if in WSL2
+  upgrade
+    - Replace platform-tools in Linux and Windows side with the latest version
+  side [-l|-w] <arguments>
+    - Call adb in linux|windows side with the arguments given
+  help
+    - Print this usage message
+  <anything else>
+    - Anything else is executed as a linux command after an automatic 'start' and 'variable' call
+

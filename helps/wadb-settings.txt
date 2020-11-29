@@ -1,0 +1,10 @@
+Usage :
+  <no args>
+    - Guide you through the options
+  y
+    - Accept all the recommended settings. No confirmation
+  n
+    - Disable WADB
+  help
+    - Print this usage message
+
