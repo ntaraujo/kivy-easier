@@ -14,7 +14,8 @@ U=ke
 set +e
 mkarchroot $ROOTFS lld python-virtualenv python-filelock git \
 zip unzip jdk8-openjdk python-pip autoconf libtool pkg-config \
-zlib cython gzip patch gcc make automake sed sudo pacman util-linux
+zlib cython gzip patch gcc make automake sed sudo pacman \
+util-linux wget
 set -e
 
 # New user
@@ -50,6 +51,7 @@ chmod +x $ROOTFS/home/$U/scripts/*
 #unzip -u $ROOTFS/home/$U/platform-tools-latest-windows.zip -d $ROOTFS/home/$U/
 
 mkdir $ROOTFS/home/$U/values
+chmod 777 $ROOTFS/home/$U/values
 
 # Documentation
 
@@ -79,6 +81,6 @@ sed -i 's/#CheckSpace/CheckSpace/g' $ROOTFS/etc/pacman.conf
 
 # Finishing
 
-GZIP=-9 tar -cvzf $FOLDERYOUWANT/rootfs.tar.gz $ROOTFS/*
+cd $ROOTFS && GZIP=-9 tar -cvzf $FOLDERYOUWANT/rootfs.tar.gz .
 
 du -sh $FOLDERYOUWANT/rootfs.tar.gz > $FOLDERYOUWANT/compressed-size.txt  # also documentation
