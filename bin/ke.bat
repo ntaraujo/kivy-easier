@@ -16,6 +16,6 @@ if "%1" == "wadb" (
         %MY_PATH% run "cat /home/ke/helps/ke.txt"
     ) else (
         call set _tail=%%_tail:*%1=%%
-        %MY_PATH% "!_tail!"
+        %MY_PATH% !_tail!
     )
 )
