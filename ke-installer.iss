@@ -14,7 +14,7 @@
 AppId={{0CB8BD9E-F07A-4771-83A5-A809391CF3A8}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
+AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
@@ -31,6 +31,9 @@ SolidCompression=yes
 LZMAUseSeparateProcess=yes
 LZMADictionarySize=1048576
 LZMANumFastBytes=273
+WizardStyle=modern
+InternalCompressLevel=ultra64
+ChangesEnvironment=true
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -60,6 +63,10 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "envPath"; Description: "Add to PATH variable"
+Name: "WADB"; Description: "Let workarounds for ADB ready"
+Name: "User"; Description: "Use the default user 'ke'"
+Name: "Keyring"; Description: "Let PACMAN ready for future uses"; Flags: unchecked
 
 [Files]
 Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\Kivy-Easier.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -74,40 +81,68 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "install"; Flags: waituntilterminated; Description: "Extract rootfs.tar.gz and register on WSL"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --init"; Flags: waituntilterminated; Description: "Keyring Part 1"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --populate"; Flags: waituntilterminated; Description: "Keyring Part 2"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "config --default-user ke"; Flags: waituntilterminated; Description: "Configure default user"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/wadb-settings.sh y"; Description: "ADB Workarounds settings"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/wadb-run.sh upgrade"; Description: "Installing Windows version of ADB"
-
-[Registry]
-Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
-    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\bin"; \
-    Check: NeedsAddPath('{app}\bin')
-
-[UninstallDelete]
-Type: files; Name: "{app}\Kivy-Easier.exe"
-Type: filesandordirs; Name: "{app}\*"
-Type: files; Name: "{app}\rootfs.tar.gz"
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "install"; Flags: waituntilterminated; Description: "Extract rootfs.tar.gz and register on WSL"; StatusMsg: "Installing on WSL"
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run 'pacman-key --init && pacman-key --populate'"; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Doing the keyring"; Tasks: Keyring
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "config --default-user ke"; Description: "Buildozer needs a non-root user to be executed"; StatusMsg: "Configuring default user"; Tasks: User
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-settings.sh y"; Description: "WADB needs your IP, a PORT value and the WSL version to work"; StatusMsg: "Configuring WADB"; Tasks: WADB
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-run.sh upgrade"; Description: "WADB needs a Windows version of ADB to work"; StatusMsg: "Installing ADB for Windows"; Tasks: WADB
 
 [UninstallRun]
-Filename: "cmd.exe"; Parameters: "/c 'echo ""y"" | {app}\Kivy-Easier.exe clean'"; Flags: waituntilterminated; RunOnceId: "WSLUnregister"
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "clean"; Flags: waituntilterminated; RunOnceId: "WSLUninstall"
 
 [Code]
+const EnvironmentKey = 'SYSTEM\CurrentControlSet\Control\Session Manager\Environment';
 
-function NeedsAddPath(Param: string): boolean;
+procedure EnvAddPath(Path: string);
 var
-  OrigPath: string;
+    Paths: string;
 begin
-  if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
-    'SYSTEM\CurrentControlSet\Control\Session Manager\Environment',
-    'Path', OrigPath)
-  then begin
-    Result := True;
-    exit;
-  end;
-  { look for the path with leading and trailing semicolon }
-  { Pos() returns 0 if not found }
-  Result := Pos(';' + Param + ';', ';' + OrigPath + ';') = 0;
+    { Retrieve current path (use empty string if entry not exists) }
+    if not RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', Paths)
+    then Paths := '';
+
+    { Skip if string already found in path }
+    if Pos(';' + Uppercase(Path) + ';', ';' + Uppercase(Paths) + ';') > 0 then exit;
+
+    { App string to the end of the path variable }
+    Paths := Paths + ';'+ Path +';'
+
+    { Overwrite (or create if missing) path environment variable }
+    if RegWriteStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', Paths)
+    then Log(Format('The [%s] added to PATH: [%s]', [Path, Paths]))
+    else Log(Format('Error while adding the [%s] to PATH: [%s]', [Path, Paths]));
+end;
+
+procedure EnvRemovePath(Path: string);
+var
+    Paths: string;
+    P: Integer;
+begin
+    { Skip if registry entry not exists }
+    if not RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', Paths) then
+        exit;
+
+    { Skip if string not found in path }
+    P := Pos(';' + Uppercase(Path) + ';', ';' + Uppercase(Paths) + ';');
+    if P = 0 then exit;
+
+    { Update path variable }
+    Delete(Paths, P - 1, Length(Path) + 1);
+
+    { Overwrite path environment variable }
+    if RegWriteStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', Paths)
+    then Log(Format('The [%s] removed from PATH: [%s]', [Path, Paths]))
+    else Log(Format('Error while removing the [%s] from PATH: [%s]', [Path, Paths]));
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+    if (CurStep = ssPostInstall) and WizardIsTaskSelected('envPath') 
+    then EnvAddPath(ExpandConstant('{app}') + '\bin');
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+    if CurUninstallStep = usPostUninstall
+    then EnvRemovePath(ExpandConstant('{app}') +'\bin');
 end;
