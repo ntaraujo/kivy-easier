@@ -1,19 +1,21 @@
 @echo off
-
+setlocal EnableDelayedExpansion
 set MY_PATH="%~dp0..\Kivy-Easier.exe"
+set _tail=%*
 
 if "%1" == "wadb" (
-    for /f "tokens=2,* delims= " %%a in ("%*") do set ALL_BUT_SECOND=%%b
+    call set _tail=%%_tail:*%1=%%
+    call set _tail=%%_tail:*%2=%%
     if "%2" == "run" (
-        %MY_PATH% run /home/ke/scripts/wadb-run.sh %ALL_BUT_SECOND%
+        %MY_PATH% run "/home/ke/scripts/wadb-run.sh !_tail!"
     ) else (
-        %MY_PATH% run /home/ke/scripts/wadb-settings.sh %ALL_BUT_SECOND%
+        %MY_PATH% run "/home/ke/scripts/wadb-settings.sh !_tail!"
     )
 ) else (
     if "%1" == "help" (
-        %MY_PATH% run cat /home/ke/helps/ke.txt
+        %MY_PATH% run "cat /home/ke/helps/ke.txt"
     ) else (
-        for /f "tokens=1,* delims= " %%a in ("%*") do set ALL_BUT_FIRST=%%b
-        %MY_PATH% %ALL_BUT_FIRST%
+        call set _tail=%%_tail:*%1=%%
+        %MY_PATH% "!_tail!"
     )
 )
