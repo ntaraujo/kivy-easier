@@ -70,7 +70,7 @@ Name: "Keyring"; Description: "Let PACMAN ready for future uses"; Flags: uncheck
 
 [Files]
 Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\Kivy-Easier.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\v2\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\v2\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
 Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
@@ -82,7 +82,8 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "install"; Flags: waituntilterminated; Description: "Extract rootfs.tar.gz and register on WSL"; StatusMsg: "Installing on WSL"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run 'pacman-key --init && pacman-key --populate'"; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Doing the keyring"; Tasks: Keyring
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --init"; Flags: waituntilterminated; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Starting the keyring"; Tasks: Keyring
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --populate"; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Finishing the keyring"; Tasks: Keyring
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "config --default-user ke"; Description: "Buildozer needs a non-root user to be executed"; StatusMsg: "Configuring default user"; Tasks: User
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-settings.sh y"; Description: "WADB needs your IP, a PORT value and the WSL version to work"; StatusMsg: "Configuring WADB"; Tasks: WADB
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-run.sh upgrade"; Description: "WADB needs a Windows version of ADB to work"; StatusMsg: "Installing ADB for Windows"; Tasks: WADB
