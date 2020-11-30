@@ -8,47 +8,20 @@ LDIR=$HOME/.buildozer/android/platform/android-sdk
 WDIR=$HOME
 LPKG=platform-tools-latest-linux.zip
 WPKG=platform-tools-latest-windows.zip
-P="WADB | "
-
-cmd()
-{
-    if [ $VERB ]
-    then
-        if [ $1 == "variable" ]
-        then
-            CMD="$@"
-        else
-            CMD="$@ 2>&1 | awk -v var=$P '{ print var \$0;}'"
-        fi
-    else
-        CMD="$@ > /dev/null 2>&1"
-    fi
-
-    if [ ! $BLOCK ]
-    then
-        [ $1 != "variable" ] && CMD="$CMD & disown"
-    fi
-
-    eval "$CMD"
-    
-}
 
 variable()
 {
     if [ $VER -eq 2 ]
     then
         export ADB_SERVER_SOCKET=tcp:$IP:$PORT
-        echo "${P}ADB_SERVER_SOCKET set to $ADB_SERVER_SOCKET"
+        echo "ADB_SERVER_SOCKET set to $ADB_SERVER_SOCKET"
     else
-        echo "${P}Skipping variable setting since in WSL2."
+        echo "Skipping variable setting since in WSL2."
     fi
 }
 
 upgrade()
-{
-    echo "Making shure you have the needed package"
-    sudo pacman -S wget --needed --noconfirm
-    
+{    
     echo "Downloading and unzipping Windows platform-tools"
     sudo wget -O $WDIR/$WPKG https://dl.google.com/android/repository/$WPKG
     sudo unzip -u $WDIR/$WPKG -d $WDIR
@@ -70,7 +43,7 @@ start()
     if [ $VER -eq 2 ]
     then
         echo "Starting adb server in Windows side"
-        ${WDIR}/platform-tools/adb.exe -a -P $PORT nodaemon server
+        ${WDIR}/platform-tools/adb.exe -a -P $PORT nodaemon server & disown
     else
         echo "Making shure adb is running in Windows side."
         ${WDIR}/platform-tools/adb.exe start-server
@@ -101,80 +74,37 @@ ahelp()
     cat $HOME/helps/wadb-run.txt
 }
 
-unset CONTINUE
-unset VERB
-unset BLOCK
-while :
-do
-    case $1 in
-        help)
-            ahelp
-            ;;
-        -v|--verbose)
-            if [ $VERB -o $BLOCK ]
-            then
-                ahelp
-            else
-                VERB=true
-                CONTINUE=true
-            fi
-            ;;
-        -b|--blocking)
-            if [ $VERB -o $BLOCK ]
-            then
-                ahelp
-            else
-                BLOCK=true
-                CONTINUE=true
-            fi
-            ;;
-        -vb|-bv)
-            if [ $VERB -o $BLOCK ]
-            then
-                VERB=true
-                BLOCK=true
-                CONTINUE=true
-            fi
-            ;;
-        variable)
-            cmd variable
-            ;;
-        upgrade)
-            cmd upgrade
-            ;;
-        start)
-            cmd start
-            ;;
-        kill)
-            cmd akill
-            ;;
-        -w|--windows)
-            if [ $VERB -o $BLOCK ]
-            then
-                ahelp
-            else
-                shift
+case "$1" in
+    help)
+        ahelp
+        ;;
+    variable)
+        variable
+        ;;
+    upgrade)
+        upgrade
+        ;;
+    start)
+        start
+        ;;
+    kill)
+        akill
+        ;;
+    side)
+        case "$2" in
+            -w)
+                shift 2
                 windows "$@"
-            fi
-            ;;
-        -l|--linux)
-            if [ $VERB -o $BLOCK ]
-            then
-                ahelp
-            else
-                shift
+                ;;
+            -l)
+                shift 2
                 linux "$@"
-            fi
             ;;
-        *)
-            cmd variable
-            cmd start
-            eval "$@"
-            ;;
-    esac
-    if [ ! $CONTINUE ]
-    then
-        break
-    fi
-    shift
-done
+        esac
+        ;;
+    *)
+        variable
+        start
+        eval "$@"
+        ;;
+esac
