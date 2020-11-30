@@ -24,7 +24,7 @@ DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 LicenseFile=C:\Users\Nathan\Documents\GitHub\kivy-easier\LICENSE
 OutputDir=C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\v2
-OutputBaseFilename=ke-installer
+OutputBaseFilename=ke-setup
 SetupIconFile=C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\logo.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -81,12 +81,12 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "install"; Flags: waituntilterminated; Description: "Extract rootfs.tar.gz and register on WSL"; StatusMsg: "Installing on WSL"
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --init"; Flags: waituntilterminated; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Starting the keyring"; Tasks: Keyring
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --populate"; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Finishing the keyring"; Tasks: Keyring
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "config --default-user ke"; Description: "Buildozer needs a non-root user to be executed"; StatusMsg: "Configuring default user"; Tasks: User
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-settings.sh y"; Description: "WADB needs your IP, a PORT value and the WSL version to work"; StatusMsg: "Configuring WADB"; Tasks: WADB
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-run.sh upgrade"; Description: "WADB needs a Windows version of ADB to work"; StatusMsg: "Installing ADB for Windows"; Tasks: WADB
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "install"; Flags: waituntilterminated runhidden; Description: "Extract rootfs.tar.gz and register on WSL"; StatusMsg: "Installing on WSL (can be slow)"; BeforeInstall: UpdateProgress(0); AfterInstall: UpdateProgress(50)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --init"; Flags: waituntilterminated runhidden; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Starting the keyring"; Tasks: Keyring; AfterInstall: UpdateProgress(60)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --populate"; Flags: runhidden; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Finishing the keyring"; Tasks: Keyring; AfterInstall: UpdateProgress(70)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "config --default-user ke"; Flags: runhidden; Description: "Buildozer needs a non-root user to be executed"; StatusMsg: "Configuring default user"; Tasks: User; AfterInstall: UpdateProgress(80)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-settings.sh y"; Flags: runhidden; Description: "WADB needs your IP, a PORT value and the WSL version to work"; StatusMsg: "Configuring WADB"; Tasks: WADB; AfterInstall: UpdateProgress(90)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-run.sh upgrade"; Flags: runhidden; Description: "WADB needs a Windows version of ADB to work"; StatusMsg: "Installing ADB for Windows"; Tasks: WADB; AfterInstall: UpdateProgress(100)
 
 [UninstallRun]
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "clean"; Flags: waituntilterminated; RunOnceId: "WSLUninstall"
@@ -146,4 +146,9 @@ procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
     if CurUninstallStep = usPostUninstall
     then EnvRemovePath(ExpandConstant('{app}') +'\bin');
+end;
+
+procedure UpdateProgress(Position: Integer);
+begin
+    WizardForm.ProgressGauge.Position := Position * WizardForm.ProgressGauge.Max div 100;
 end;
