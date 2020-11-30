@@ -11,7 +11,7 @@ if "%1" == "wadb" (
     )
 ) else (
     if "%1" == "help" (
-        %MY_PATH% run cat /home/helps/ke.txt
+        %MY_PATH% run cat /home/ke/helps/ke.txt
     ) else (
         for /f "tokens=1,* delims= " %%a in ("%*") do set ALL_BUT_FIRST=%%b
         %MY_PATH% %ALL_BUT_FIRST%
