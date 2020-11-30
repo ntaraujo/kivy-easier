@@ -34,6 +34,14 @@ LZMANumFastBytes=273
 WizardStyle=modern
 InternalCompressLevel=ultra64
 ChangesEnvironment=true
+WizardImageFile=userdocs:GitHub\kivy-easier\dev\logo.bmp
+WizardSmallImageFile=userdocs:GitHub\kivy-easier\dev\logo.bmp
+ExtraDiskSpaceRequired=2
+VersionInfoVersion=2
+MinVersion=10.0.16299
+ArchitecturesInstallIn64BitMode=x64 arm64 ia64
+ArchitecturesAllowed=x64 arm64 ia64
+WizardImageStretch=False
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
