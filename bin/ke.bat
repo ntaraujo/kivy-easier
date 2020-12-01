@@ -1,9 +1,9 @@
 @echo off
 setlocal EnableDelayedExpansion
 set MY_PATH="%~dp0..\Kivy-Easier.exe"
-set _tail=%*
 
 if "%1" == "wadb" (
+    set _tail=%*
     call set _tail=%%_tail:*%1=%%
     call set _tail=%%_tail:*%2=%%
     if "%2" == "run" (
@@ -15,7 +15,6 @@ if "%1" == "wadb" (
     if "%1" == "help" (
         %MY_PATH% run "cat /home/ke/helps/ke.txt"
     ) else (
-        call set _tail=%%_tail:*%1=%%
-        %MY_PATH% !_tail!
+        %MY_PATH% %*
     )
 )
