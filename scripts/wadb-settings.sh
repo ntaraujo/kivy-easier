@@ -1,10 +1,11 @@
 #!/bin/sh
 
-VALUES=$HOME/values
+PDIR=/root
+VALUES=$PDIR/values
 
 if [ "$1" == "help" ]
 then
-	cat $HOME/helps/wadb-settings.txt
+	cat $PDIR/helps/wadb-settings.txt
 	exit
 fi
 
@@ -88,7 +89,7 @@ then
 
 	sudo echo $VER > $VALUES/WSL
 
-	echo "Thanks! The settings have been saved in $VALUES. You can use these with '$HOME/wadb-run.sh'"
+	echo "Thanks! The settings have been saved in $VALUES. You can use these with '$PDIR/wadb-run.sh'"
 else
 	if [ -f $VALUES/IP ]
 	then

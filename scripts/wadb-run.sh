@@ -1,11 +1,12 @@
 #!/bin/sh
 
-VALUES=$HOME/values
+PDIR=/root
+VALUES=$PDIR/values
 VER=$(cat $VALUES/WSL)
 PORT=$(cat $VALUES/PORT)
 IP=$(cat $VALUES/IP)
-LDIR=$HOME/.buildozer/android/platform/android-sdk
-WDIR=$HOME
+LDIR=$PDIR/.buildozer/android/platform/android-sdk
+WDIR=$PDIR
 LPKG=platform-tools-latest-linux.zip
 WPKG=platform-tools-latest-windows.zip
 
@@ -15,8 +16,8 @@ variable()
     then
         export ADB_SERVER_SOCKET=tcp:$IP:$PORT
         echo "ADB_SERVER_SOCKET set to $ADB_SERVER_SOCKET"
-    else
-        echo "Skipping variable setting since in WSL2."
+    elif [ $VER -eq 1 ]
+        echo "Skipping variable setting since in WSL1."
     fi
 }
 
@@ -44,7 +45,7 @@ start()
     then
         echo "Starting adb server in Windows side"
         ${WDIR}/platform-tools/adb.exe -a -P $PORT nodaemon server & disown
-    else
+    elif [ $VER -eq 1 ]
         echo "Making shure adb is running in Windows side."
         ${WDIR}/platform-tools/adb.exe start-server
     fi
@@ -71,7 +72,7 @@ linux()
 
 ahelp()
 {
-    cat $HOME/helps/wadb-run.txt
+    cat $PDIR/helps/wadb-run.txt
 }
 
 case "$1" in
