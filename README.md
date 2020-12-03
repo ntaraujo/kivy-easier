@@ -11,7 +11,7 @@
 
 ## 📚 Intro
 
-This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit `buildozer android debug` in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit `buildozer android debug` in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-1---enable-the-windows-subsystem-for-linux).
 
 ## 💻 Specs
 
@@ -26,9 +26,11 @@ Minimum to use WSL2 (or your project need to be inside the distro)
 
 ## 💾 Install
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe) the .exe file and run it
+#### 1. Make shure you have WSL enabled and the default version is 2
+Follow [these](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-1---enable-the-windows-subsystem-for-linux) instructions until the fifth step
+#### 2. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe) the .exe file and run it
 A dialog box should appear asking for permission. 
-#### 2. Next, next, next
+#### 3. Next, next, next
 More details about the installation [here](https://github.com/ntaraujo/kivy-easier/blob/master/INSTALL.md).
 
 ## 😎 Start using
