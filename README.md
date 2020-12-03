@@ -1,109 +1,86 @@
-# Kivy Easier
-Archlinux and buildozer on WSL (Windows 10 FCU or later)
-based on [wsldl](https://github.com/yuk7/wsldl)
+<h1 align="center">Kivy Easier</h1>
+<p align="center">Buildozer on Windows.</p>
 
-![Screenshot](https://user-images.githubusercontent.com/66187211/96212318-eba01480-0f4c-11eb-9a53-5394175c8bac.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/66187211/100953292-0f192180-34f1-11eb-8f71-270f3f47721d.PNG" alt="kivy-easier"></p>
 
-[![License](https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ntaraujo/kivy-easier/issues)
-[![HitCount](http://hits.dwyl.com/ntaraujo/kivy-easier.svg)](http://hits.dwyl.com/ntaraujo/kivy-easier)
-[![Github All Releases](https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/releases/latest)
+<p align="center"><a href="https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square" alt="License"></a>
+<a href="https://github.com/ntaraujo/kivy-easier/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions Welcome"></a>
+<a href="https://github.com/ntaraujo/kivy-easier/releases/latest"><img src="https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg?style=flat-square" alt="Github All Releases"></a></p>
 
-### [⬇Download](https://github.com/ntaraujo/kivy-easier/releases/latest) | [📓Wiki](https://github.com/ntaraujo/kivy-easier/wiki)
+<h1 align="center"><a href="https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe">⬇Download here</a></h1>
 
 ## 📚 Intro
 
-Windows Subsystem for Linux is the easiest way to run linux commands without the need to change all your environment. It's becoming more complex and complete. Certainly a good option to kivy developers who want to use buildozer in Windows.
-If you don't use WSL yet, [read more](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit `buildozer android debug` in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-## 💻Requirements
+## 💻 Specs
 
+### Required
+Minimum to use [wsldl](https://github.com/yuk7/wsldl)
 * Windows 10 1709 Fall Creators Update 64bit or later.
 * Windows Subsystem for Linux feature is enabled.
+### Recommended
+Minimum to use WSL2 (or your project need to be inside the distro)
+* For x64 systems: Version 1903 or higher, with Build 18362 or higher.
+* For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
 
-## 💾Install
+## 💾 Install
 
-**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Starting)**
+#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe) the .exe file and run it
+A dialog box should appear asking for permission. 
+#### 2. Next, next, next
+More details about the installation [here](https://github.com/ntaraujo/kivy-easier/blob/master/INSTALL.md).
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) installer zip
-
-![](https://badgen.net/badge/size/417MB/?label=expected+size)
-
-#### 2. Extract all files in zip file to same directory
-Please extract to a folder that has full access permission.
-For example 'Program Files' can not be used.
-
-We recommend one easy to remember and type. Like "C:\ke\\".
-
-![](https://badgen.net/badge/size/420MB/?label=expected+size)
-
-#### 3. Run Kivy-Easier.exe
-It will extract rootfs.tar.gz and register to WSL.
-
-![](https://badgen.net/badge/size/1.34GB/?label=expected+size)
-
-## ⚙️ Setup
-
-#### 1. Setup default user
-Already has an user created, its name is `kivy`, as the password.
-In the folder you extracted the exe, run:
-```
-.\Kivy-Easier.exe config --default-user kivy
-```
-Now, when you open the distro, will be logged in as a non-root user.
-
-Tip: shift + right click in File Explorer show the option "Open PowerShell window here"
-
-#### 2. Open the WSL Terminal
-If you use Windows Terminal, will appear the Kivy-Easier option to you in the "˅";
-
-If you don't, run Kivy-Easier.exe once more, now it wont setup, but open the distro.
-
-You can also create shortcuts with the context menu. Just right click and choose the better option to you.
-
-#### 3. Configure adb, if needed
-For WSL2 users, adb doesn't work directly. Kivy Easier proposes a workaround for it.
-
-If asked, confirm you want to run this workaround and if ip and port are right typing "y".
-
-Then, allow to run adb from within wsl in the firewall dialog box.
-
-If you are a WSL1 user, these messages shouldn't appear.
-
-## 📝How-to-Use
-
-**[For details, please refer to the wiki](https://github.com/ntaraujo/kivy-easier/wiki/Using)**
+## 😎 Start using
+Yes, it is ready. Use as if you are on linux systems
 
 #### 1. Access your project directory
-Change the current directory to which the `main.py` file is located. If it is in "C:\\Users\\You\\Documents\\KivyProject":
 ```
-cd /mnt/c/Users/You/Documents/KivyProject
+cd C:\Users\You\Documents\YourProject
 ```
+Note: The path cannot have spaces
 
 #### 2. Create buildozer.spec file
-Your app's specifications will be inside this. Run:
 ```
 buildozer init
 ```
 
 #### 3. Edit it
-Open buildozer.spec in your favorite editor (Windows side), change and save.
+```
+code .\buildozer.spec
+```
 
-#### 5. Start packaging
+#### 4. Start packaging
 ```
 buildozer -v android debug
 ```
-The process is commonly boring, get a coffe.
+Note: be aware Kivy Easier will accept any license agreements automatically, as the one which appears in first run
+
+#### 5. Get a coffe
+## ☕ 😌
+
+#### 6. Test on android devices
+```
+buildozer android deploy run
+buildozer android logcat | grep python
+```
+Note: part of the output will be the results of ADB workarounds
+
+More details about the usage [here](https://github.com/ntaraujo/kivy-easier/blob/master/USAGE.md).
 
 ## ⬆️Update
 
-#### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest) installer zip
+#### 1. Uninstall previous version
+Go to `Settings` > `Applications` > `Kivy Easier X` and click `Uninstall`
 
-#### 2. Extract .exe and rootfs.tar.gz from .zip and overwrites existing ones.
+Note: It will delete all already installed packages for buildozer too. First compile will be slower to download all again
+
+#### 2. Install the [latest version](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe)
+Follow the instructions above
 
 ## 🔧 Developers
 
-Details on how to reproduce this project are on the [wiki](https://github.com/ntaraujo/kivy-easier/wiki/Developing)
+Details on how to reproduce/contribute to this project [here](https://github.com/ntaraujo/kivy-easier/blob/master/DEVELOP.md).
 
 ## 📁 Old Virtual Machine
-No support, but you can get more info in this [branch](https://github.com/ntaraujo/kivy-easier/tree/old-vm).
+No support, but you can get more info in [this branch](https://github.com/ntaraujo/kivy-easier/tree/old-vm).
