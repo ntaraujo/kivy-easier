@@ -6,6 +6,7 @@
 #define MyAppPublisher "Nathan Araújo"
 #define MyAppURL "https://github.com/ntaraujo/kivy-easier"
 #define MyAppExeName "Kivy-Easier.exe"
+#define MyPath "C:\Users\Nathan\Documents\GitHub\kivy-easier"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -22,10 +23,10 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={commonpf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile=C:\Users\Nathan\Documents\GitHub\kivy-easier\LICENSE
-OutputDir=C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\v2
+LicenseFile={#MyPath}\LICENSE
+OutputDir={#MyPath}\dev\v2
 OutputBaseFilename=ke-setup
-SetupIconFile=C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\logo.ico
+SetupIconFile={#MyPath}\dev\logo.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
 LZMAUseSeparateProcess=yes
@@ -34,8 +35,8 @@ LZMANumFastBytes=273
 WizardStyle=modern
 InternalCompressLevel=ultra64
 ChangesEnvironment=true
-WizardImageFile=userdocs:GitHub\kivy-easier\dev\logo.bmp
-WizardSmallImageFile=userdocs:GitHub\kivy-easier\dev\logo.bmp
+WizardImageFile={#MyPath}\dev\big.bmp
+WizardSmallImageFile={#MyPath}\dev\small\*.bmp
 ExtraDiskSpaceRequired=2
 VersionInfoVersion=2
 MinVersion=10.0.16299
@@ -76,9 +77,9 @@ Name: "WADB"; Description: "Let workarounds for ADB ready"
 Name: "Keyring"; Description: "Let PACMAN ready for future uses"
 
 [Files]
-Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\Kivy-Easier.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\dev\v2\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
-Source: "C:\Users\Nathan\Documents\GitHub\kivy-easier\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#MyPath}\dev\Kivy-Easier.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\dev\v2\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
+Source: "{#MyPath}\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -87,12 +88,12 @@ Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
+Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent unchecked; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "install"; Flags: waituntilterminated runhidden; Description: "Extract rootfs.tar.gz and register on WSL"; StatusMsg: "Installing on WSL (can be slow)"; BeforeInstall: UpdateProgress(0); AfterInstall: UpdateProgress(20)
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --init"; Flags: waituntilterminated runhidden; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Starting the keyring"; Tasks: Keyring; AfterInstall: UpdateProgress(40)
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "run pacman-key --populate"; Flags: runhidden; Description: "The keyring is needed to install packages with PACMAN"; StatusMsg: "Finishing the keyring"; Tasks: Keyring; AfterInstall: UpdateProgress(60)
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-settings.sh y"; Flags: runhidden; Description: "WADB needs your IP, a PORT value and the WSL version to work"; StatusMsg: "Configuring WADB"; Tasks: WADB; AfterInstall: UpdateProgress(80)
-Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /home/ke/scripts/wadb-run.sh upgrade"; Flags: runhidden; Description: "WADB needs a Windows version of ADB to work"; StatusMsg: "Installing ADB for Windows"; Tasks: WADB; AfterInstall: UpdateProgress(100)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /root/scripts/wadb-settings.sh y"; Flags: runhidden; Description: "WADB needs your IP, a PORT value and the WSL version to work"; StatusMsg: "Configuring WADB"; Tasks: WADB; AfterInstall: UpdateProgress(80)
+Filename: "{app}\Kivy-Easier.exe"; Parameters: "run /root/scripts/wadb-run.sh upgrade"; Flags: runhidden; Description: "WADB needs a Windows version of ADB to work"; StatusMsg: "Installing ADB for Windows"; Tasks: WADB; AfterInstall: UpdateProgress(100)
 
 [UninstallRun]
 Filename: "{app}\Kivy-Easier.exe"; Parameters: "clean"; Flags: waituntilterminated; RunOnceId: "WSLUninstall"
