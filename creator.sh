@@ -4,7 +4,7 @@ set -xe
 
 ROOTFS=/root/rootfs
 MYPATH=/mnt/c/Users/Nathan/Documents/GitHub/kivy-easier
-FOLDERYOUWANT=$MYPATH/dev/v2
+FOLDERYOUWANT=$MYPATH/dev/new
 U=ke
 PDIR=/root
 
@@ -47,6 +47,7 @@ cp -r $MYPATH/helps/ $ROOTFS$PDIR
 
 cp -r $MYPATH/scripts/ $ROOTFS$PDIR
 chmod +x $ROOTFS$PDIR/scripts/*
+sed -i -e 's/\r$//' $ROOTFS$PDIR/scripts/*
 
 #wget -O $ROOTFS$PDIR/platform-tools-latest-windows.zip https://dl.google.com/android/repository/platform-tools-latest-windows.zip
 #unzip -u $ROOTFS$PDIR/$U/platform-tools-latest-windows.zip -d $ROOTFS$PDIR
