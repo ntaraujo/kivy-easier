@@ -78,7 +78,7 @@ Name: "Keyring"; Description: "Let PACMAN ready for future uses"
 
 [Files]
 Source: "{#MyPath}\dev\Kivy-Easier.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\dev\new\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
+Source: "{#MyPath}\dev\new\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyPath}\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
