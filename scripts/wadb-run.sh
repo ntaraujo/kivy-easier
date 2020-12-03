@@ -17,6 +17,7 @@ variable()
         export ADB_SERVER_SOCKET=tcp:$IP:$PORT
         echo "ADB_SERVER_SOCKET set to $ADB_SERVER_SOCKET"
     elif [ $VER -eq 1 ]
+    then
         echo "Skipping variable setting since in WSL1."
     fi
 }
@@ -46,6 +47,7 @@ start()
         echo "Starting adb server in Windows side"
         ${WDIR}/platform-tools/adb.exe -a -P $PORT nodaemon server & disown
     elif [ $VER -eq 1 ]
+    then
         echo "Making shure adb is running in Windows side."
         ${WDIR}/platform-tools/adb.exe start-server
     fi
