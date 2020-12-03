@@ -22,7 +22,7 @@ Install the needed packages and start the creation
 ```
 Any doubts feel free to ask on issues.
 
-Now, change the line with `MyPath` in `ke-setup.iss` to the repo folder path ON WINDOWS
+Now, change `MyPath` in `ke-setup.iss` to the repo folder path ON WINDOWS
 ```
 > echo %cd%
 C:\Users\Nathan\Documents\Github\kivy-easier  # copy it
