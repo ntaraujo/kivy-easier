@@ -3,9 +3,10 @@
 set -xe
 
 ROOTFS=/root/rootfs
-FOLDERYOUWANT=/mnt/c/Users/Nathan/Documents/GitHub/kivy-easier/dev/v2
-FIRSTFOLDER=/mnt/c/Users/Nathan/Documents/GitHub/kivy-easier
+MYPATH=/mnt/c/Users/Nathan/Documents/GitHub/kivy-easier
+FOLDERYOUWANT=$MYPATH/dev/v2
 U=ke
+PDIR=/root
 
 # Initial packages for chroot side
 
@@ -42,16 +43,15 @@ arch-chroot $ROOTFS pip install buildozer
 
 # Extra files and folders
 
-cp -r $FIRSTFOLDER/helps/ $ROOTFS/home/$U
+cp -r $MYPATH/helps/ $ROOTFS$PDIR
 
-cp -r $FIRSTFOLDER/scripts/ $ROOTFS/home/$U
-chmod +x $ROOTFS/home/$U/scripts/*
+cp -r $MYPATH/scripts/ $ROOTFS$PDIR
+chmod +x $ROOTFS$PDIR/scripts/*
 
-#wget -O $ROOTFS/home/$U/platform-tools-latest-windows.zip https://dl.google.com/android/repository/platform-tools-latest-windows.zip
-#unzip -u $ROOTFS/home/$U/platform-tools-latest-windows.zip -d $ROOTFS/home/$U/
+#wget -O $ROOTFS$PDIR/platform-tools-latest-windows.zip https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+#unzip -u $ROOTFS$PDIR/$U/platform-tools-latest-windows.zip -d $ROOTFS$PDIR
 
-mkdir $ROOTFS/home/$U/values
-chmod 777 $ROOTFS/home/$U/values
+mkdir $ROOTFS$PDIR/values
 
 # Documentation
 
@@ -77,7 +77,7 @@ rm -r $ROOTFS/etc/pacman.d/gnupg
 
 sed -i 's/#CheckSpace/CheckSpace/g' $ROOTFS/etc/pacman.conf
 
-#rm $ROOTFS/home/$U/platform-tools-latest-windows.zip
+#rm $ROOTFS$PDIR/platform-tools-latest-windows.zip
 
 # Finishing
 
