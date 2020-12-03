@@ -4,7 +4,7 @@ Usage :
       - Open a new shell with your default settings.
 
     wadb [settings|run]
-      - Run these commands with 'help' to see their usages
+      - Run these commands with 'help' to see their usages.
 
     run <command line>
       - Run the given command line in that distro. Inherit current directory.
@@ -27,6 +27,9 @@ Usage :
     backup [contents]
       - `--tgz`: Output backup.tar.gz to the current directory using tar command
       - `--reg`: Output settings registry file to the current directory
+
+    install <tarball>
+      - Install instance image with .tar.gz.
 
     clean
       - Uninstall the distro.
