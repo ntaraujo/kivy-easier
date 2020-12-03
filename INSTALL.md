@@ -6,7 +6,7 @@ This page is to explain how Kivy Easier will be installed on your machine and wh
 ## Basic
 When the installer is run, it will extract three things in the folder given: "Kivy-Easier.exe", "rootfs.tar.gz" and "bin".
 
-The first is explained and the second will be deleted after. It is there for a while because the installer will run "Kivy-Easier.exe install" which will extract (again) all the file system from the file and register on WSL. Then, a Kivy-Easier option will appear between other distros if you have.
+The first is explained and the second will be deleted after. It is there for a while because the installer will run "Kivy-Easier.exe install" which will extract (again) all the file system from the tarball and register on WSL. Then, a Kivy-Easier option will appear between other distros if you have.
 
 ## Add to PATH variable
 This option is part of the magic in this project.
@@ -15,7 +15,7 @@ This option is part of the magic in this project.
 
 The second is the apple of the eye: will take your orders to buildozer inside the distro making shure adb workarounds are working.
 
-And the third is to make easier the common command
+And the third is for making easier the common command
 ```
 buildozer android logcat | grep python
 ```
