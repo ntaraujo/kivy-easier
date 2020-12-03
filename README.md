@@ -1,7 +1,7 @@
 <h1 align="center">Kivy Easier</h1>
 <p align="center">Buildozer on Windows.</p>
 
-![Screenshot](https://user-images.githubusercontent.com/66187211/96212318-eba01480-0f4c-11eb-9a53-5394175c8bac.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/66187211/100953292-0f192180-34f1-11eb-8f71-270f3f47721d.PNG" alt="kivy-easier"></p>
 
 <p align="center"><a href="https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square" alt="License"></a>
 <a href="https://github.com/ntaraujo/kivy-easier/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions Welcome"></a>
@@ -11,7 +11,7 @@
 
 ## 📚 Intro
 
-This project uses Windows Subsystem for Linux to run all buildozer stuff in a box for you only have to digit `buildozer android debug` in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit `buildozer android debug` in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 ## 💻 Specs
 
@@ -32,7 +32,7 @@ A dialog box should appear asking for permission.
 More details about the installation [here](https://github.com/ntaraujo/kivy-easier/blob/master/INSTALL.md).
 
 ## 😎 Start using
-Yes, it is ready. Use as you are in linux systems
+Yes, it is ready. Use as if you are on linux systems
 
 #### 1. Access your project directory
 ```
@@ -64,7 +64,7 @@ Note: be aware Kivy Easier will accept any license agreements automatically, as 
 buildozer android deploy run
 buildozer android logcat | grep python
 ```
-Note: part of the output will be results of ADB workarounds
+Note: part of the output will be the results of ADB workarounds
 
 More details about the usage [here](https://github.com/ntaraujo/kivy-easier/blob/master/USAGE.md).
 
