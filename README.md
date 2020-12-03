@@ -1,13 +1,13 @@
-# Kivy Easier
-Buildozer on Windows.
+<h1 align="center">Kivy Easier</h1>
+<p align="center">Buildozer on Windows.</p>
 
 ![Screenshot](https://user-images.githubusercontent.com/66187211/96212318-eba01480-0f4c-11eb-9a53-5394175c8bac.png)
 
-[![License](https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ntaraujo/kivy-easier/issues)
-[![Github All Releases](https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg?style=flat-square)](https://github.com/ntaraujo/kivy-easier/releases/latest)
+<p align="center"><a href="https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square" alt="License"></a>
+<a href="https://github.com/ntaraujo/kivy-easier/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions Welcome"></a>
+<a href="https://github.com/ntaraujo/kivy-easier/releases/latest"><img src="https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg?style=flat-square" alt="Github All Releases"></a></p>
 
-### [⬇Download](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe) | [📓Start using](https://github.com/ntaraujo/kivy-easier#😎-Start-Using)
+<h1 align="center"><a href="https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe">⬇Download here</a></h1>
 
 ## 📚 Intro
 
@@ -29,10 +29,10 @@ Minimum to use WSL2 (or your project need to be inside the distro)
 #### 1. [Download](https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe) the .exe file and run it
 A dialog box should appear asking for permission. 
 #### 2. Next, next, next
-Or change the options, of course. More details about the installation [here](https://github.com/ntaraujo/kivy-easier/blob/master/INSTALL.md).
+More details about the installation [here](https://github.com/ntaraujo/kivy-easier/blob/master/INSTALL.md).
 
 ## 😎 Start using
-Yes, thats it. Use buildozer related commands as you are in linux systems:
+Yes, it is ready. Use as you are in linux systems
 
 #### 1. Access your project directory
 ```
@@ -46,20 +46,32 @@ buildozer init
 ```
 
 #### 3. Edit it
-Open buildozer.spec in your favorite editor, change and save.
+```
+code .\buildozer.spec
+```
 
 #### 4. Start packaging
 ```
 buildozer -v android debug
 ```
-And... get a coffe.
+Note: be aware Kivy Easier will accept any license agreements automatically, as the one which appears in first run
+
+#### 5. Get a coffe
+## ☕ 😌
+
+#### 6. Test on android devices
+```
+buildozer android deploy run
+buildozer android logcat | grep python
+```
+Note: part of the output will be results of ADB workarounds
 
 More details about the usage [here](https://github.com/ntaraujo/kivy-easier/blob/master/USAGE.md).
 
 ## ⬆️Update
 
-### 1. Uninstall previous version
-Go to `Settings` > `Applications` > `Kivy Easier X` and click on `Uninstall`
+#### 1. Uninstall previous version
+Go to `Settings` > `Applications` > `Kivy Easier X` and click `Uninstall`
 
 Note: It will delete all already installed packages for buildozer too. First compile will be slower to download all again
 
