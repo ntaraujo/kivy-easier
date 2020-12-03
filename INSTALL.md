@@ -68,4 +68,4 @@ You will need this if you want to install any package in the distro after, or so
 ## Uninstalling
 If in some moment you want to uninstall Kivy Easier, it will prompt asking for you confirm with "y", this is the `Kivy-Easier.exe clean` command. It will unregister on WSL allowing all files to be deleted.
 
-Here is also good to say that "bin" will be removed from path but a empty string is put in place, as you can see with `"echo %PATH%` in cmd.
+Here is also good to say that "bin" will be removed from path but a empty string is put in place, as you can see with `echo %PATH%` in cmd.
