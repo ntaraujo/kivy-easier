@@ -24,7 +24,7 @@ DefaultDirName={commonpf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 LicenseFile={#MyPath}\LICENSE
-OutputDir={#MyPath}\dev\v2
+OutputDir={#MyPath}\dev\new
 OutputBaseFilename=ke-setup
 SetupIconFile={#MyPath}\dev\logo.ico
 Compression=lzma2/ultra64
@@ -78,7 +78,7 @@ Name: "Keyring"; Description: "Let PACMAN ready for future uses"
 
 [Files]
 Source: "{#MyPath}\dev\Kivy-Easier.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\dev\v2\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
+Source: "{#MyPath}\dev\new\rootfs.tar.gz"; DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
 Source: "{#MyPath}\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

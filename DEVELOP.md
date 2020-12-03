@@ -12,7 +12,7 @@ Change `MYPATH` in `creator.sh` to the repo folder path INSIDE WSL
 /mnt/c/Users/Nathan/Documents/Github/kivy-easier  # copy it
 code .\creator.sh  # using VSCode in this example
 ```
-Also, create a folder `dev` and, inside this, another with a name such as `v3-alpha`, `v4`. Use [Semantic Versioning](https://semver.org/). Change `FOLDERYOUWANT` to this new folder.
+Also, create a folder `dev` and, inside this, another with the name `new`.
 
 Install the needed packages and start the creation
 ```
@@ -28,10 +28,10 @@ Now, change `MyPath` in `ke-setup.iss` to the repo folder path ON WINDOWS
 C:\Users\Nathan\Documents\Github\kivy-easier  # copy it
 > code .\ke-setup.iss  # or better, open with Inno Setup Compiler
 ```
-Also, exclude the lines with paths to images `.ico`, `.bmp` and change the paths pointing to inexistent folders e.g. `dev\v2` ---> `dev\v4`.
+Also, exclude the lines with paths to images `.ico`, `.bmp`.
 
 Copy `Launcher.exe` from wsldl to `dev` and rename to `Kivy-Easier.exe`.
 
 When `creator.sh` finishes, open `ke-setup.iss` with Inno Setup Compiler and start with Ctrl + F9.
 
-That is it. Thank you so much
+That is it. Thank you so much. `ke-setup.exe` will be on `dev\new`
