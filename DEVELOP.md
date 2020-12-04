@@ -28,7 +28,7 @@ Now, change `MyPath` in `ke-setup.iss` to the repo folder path ON WINDOWS
 C:\Users\Nathan\Documents\Github\kivy-easier  # copy it
 > code .\ke-setup.iss  # or better, open with Inno Setup Compiler
 ```
-Also, exclude the lines with paths to images `.ico`, `.bmp`.
+Also, exclude the lines with paths to images `.ico`, `.bmp` and with `LICENSE` file
 
 Copy `Launcher.exe` from wsldl to `dev` and rename to `Kivy-Easier.exe`.
 
