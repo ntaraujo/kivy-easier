@@ -3,9 +3,9 @@
 
 <p align="center"><img src="https://user-images.githubusercontent.com/66187211/100953292-0f192180-34f1-11eb-8f71-270f3f47721d.PNG" alt="kivy-easier"></p>
 
-<p align="center"><a href="https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ntaraujo/kivy-easier.svg?style=flat-square" alt="License"></a>
-<a href="https://github.com/ntaraujo/kivy-easier/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions Welcome"></a>
-<a href="https://github.com/ntaraujo/kivy-easier/releases/latest"><img src="https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg?style=flat-square" alt="Github All Releases"></a></p>
+<p align="center"><a href="https://github.com/ntaraujo/kivy-easier/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ntaraujo/kivy-easier.svg" alt="License"></a>
+<a href="https://github.com/ntaraujo/kivy-easier/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
+<a href="https://github.com/ntaraujo/kivy-easier/releases/latest"><img src="https://img.shields.io/github/downloads/ntaraujo/kivy-easier/total.svg" alt="Github All Releases"></a></p>
 
 <h1 align="center"><a href="https://github.com/ntaraujo/kivy-easier/releases/latest/download/ke-setup.exe">⬇Download here</a></h1>
 
