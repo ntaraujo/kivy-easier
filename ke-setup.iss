@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Kivy Easier"
-#define MyAppVersion "2"
+#define MyAppVersion "2.0.3"
 #define MyAppPublisher "Nathan Araújo"
 #define MyAppURL "https://github.com/ntaraujo/kivy-easier"
 #define MyAppExeName "Kivy-Easier.exe"
