@@ -23,7 +23,7 @@ you could use `findstr` windows command or just enclausure the pipeline:
 ```
 buildozer "android logcat | grep python"
 # or
-buildozer android "|" grep python
+buildozer android logcat "|" grep python
 ```
 but its not so 🌟magic🌟
 

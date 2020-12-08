@@ -64,7 +64,7 @@ something
 > ke
 [user@PC-NAME dir]$
 ```
-Already exists an user: 'ke' with the passwd 'ke'
+Already exists an user: 'ke' with the passwd 'ke'.
 If the default user has not been changed, please reboot the computer.
 
 #### How to backup instance image
@@ -141,7 +141,7 @@ buildozer <arguments>
 ```
 knowing the previous, basically its equal to
 ```
-ke wadb runp "yes | buildozer <arguments>" && ke wadb run kill
+ke wadb run "yes | buildozer <arguments>" && ke wadb run kill
 ```
 but wrote in another way
 
