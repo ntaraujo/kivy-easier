@@ -11,7 +11,7 @@
 
 ## 📚 Intro
 
-This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit `buildozer android debug` in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-1---enable-the-windows-subsystem-for-linux).
+This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit the command in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-1---enable-the-windows-subsystem-for-linux).
 
 ## 💻 Specs
 
