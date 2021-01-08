@@ -11,7 +11,7 @@
 
 ## 📚 Intro
 
-This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit the command in your preferred terminal. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-1---enable-the-windows-subsystem-for-linux).
+This project uses Windows Subsystem for Linux to run all buildozer stuff in a box so you only have to digit the command in Powershell or cmd. It's light and weigh just the needed to work. If you don't use WSL yet, [install it](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-1---enable-the-windows-subsystem-for-linux).
 
 ## 💻 Specs
 
@@ -41,6 +41,8 @@ Yes, it is ready. Use as if you are on linux systems
 cd C:\Users\You\Documents\YourProject
 ```
 Note: The path cannot have spaces
+
+Note: this is for Powershell or cmd, not bash
 
 #### 2. Create buildozer.spec file
 ```
