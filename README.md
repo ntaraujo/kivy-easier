@@ -20,7 +20,7 @@ Minimum to use [wsldl](https://github.com/yuk7/wsldl)
 * Windows 10 1709 Fall Creators Update 64bit or later.
 * Windows Subsystem for Linux feature is enabled.
 ### Recommended
-Minimum to use WSL2 (or your project need to be inside the distro)
+Minimum to use WSL2 (with WSL1 your project cannot be on Windows side)
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
 * For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
 
@@ -34,15 +34,13 @@ A dialog box should appear asking for permission.
 More details about the installation [here](https://github.com/ntaraujo/kivy-easier/blob/master/INSTALL.md).
 
 ## 😎 Start using
-Yes, it is ready. Use as if you are on linux systems
+Yes, it is ready. Open a new cmd or Powershell instance and use as if you are on linux systems
 
 #### 1. Access your project directory
 ```
 cd C:\Users\You\Documents\YourProject
 ```
 Note: The path cannot have spaces
-
-Note: this is for Powershell or cmd, not bash
 
 #### 2. Create buildozer.spec file
 ```
@@ -53,6 +51,7 @@ buildozer init
 ```
 code .\buildozer.spec
 ```
+Note: Example with VSCode, otherwise just open the file
 
 #### 4. Start packaging
 ```
