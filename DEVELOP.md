@@ -1,3 +1,5 @@
+First of all, thanks for your time!
+
 To start developing this project you need [Inno Setup](https://jrsoftware.org/download.php/is.exe), an Arch Linux distro as [ArchWSL](https://github.com/yuk7/ArchWSL), [wsldl](https://github.com/yuk7/wsldl/releases/latest) and of course [git](https://git-scm.com/download/win)
 
 Clone the repo
@@ -34,4 +36,4 @@ Copy `Launcher.exe` from wsldl to `dev` and rename to `Kivy-Easier.exe`.
 
 When `creator.sh` finishes, open `ke-setup.iss` with Inno Setup Compiler and start with Ctrl + F9.
 
-That is it. Thank you so much. `ke-setup.exe` will be on `dev\new`
+That is it. `ke-setup.exe` will be on `dev\new` and you can test any improvements with that.
